@@ -2,81 +2,95 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Malka Rani Is Finally Here ❤️</title>
+<title>MALKA RANI IS FINALLY HERE ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
 
 <style>
 body {
     margin: 0;
-    font-family: 'Georgia', serif;
-    background: linear-gradient(135deg, #8b0000, #b3003b, #ff4d6d);
-    color: white;
+    font-family: 'Playfair Display', serif;
+    background: linear-gradient(135deg, #5c0000, #8b0000, #4a0000);
+    color: #fff5f7;
     text-align: center;
     overflow: hidden;
 }
 
-/* Pages */
-.page { display: none; height: 100vh; padding: 60px; }
-.active { display: block; animation: fadeIn 1.8s ease; }
+/* Page Animation */
+.page { display: none; height: 100vh; padding: 70px; }
+.active { display: block; animation: fadeInUp 2s ease; }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(25px); }
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(40px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Glowing Name */
+/* Text Glow */
 .glowName {
-    color: #fff0f5;
-    text-shadow: 0 0 15px #ff4d6d, 0 0 40px #ff1a40;
-    animation: glowPulse 2s infinite alternate;
-}
-@keyframes glowPulse {
-    from { text-shadow: 0 0 15px #ff4d6d; }
-    to { text-shadow: 0 0 50px #ff1a40; }
+    color: #ffd6db;
+    text-shadow: 0 0 15px #ff4d6d, 0 0 35px #ff1a40;
 }
 
-h1 { font-size: 2.8em; margin-top: 40px; }
-p { font-size: 1.15em; max-width: 760px; margin: auto; line-height: 1.9; }
+/* Titles */
+h1 {
+    font-size: 3em;
+    letter-spacing: 2px;
+    animation: textFade 2.5s ease;
+}
+
+p {
+    font-size: 1.2em;
+    max-width: 750px;
+    margin: auto;
+    line-height: 1.9;
+    animation: textFade 3s ease;
+}
 
 .bigLine {
-    font-size: 1.7em;
-    margin-top: 30px;
-    color: #fff0f5;
-    text-shadow: 0 0 25px #ff4d6d;
+    font-size: 1.8em;
+    margin-top: 35px;
+    color: #ffd6db;
+    text-shadow: 0 0 30px #ff4d6d;
+    animation: textFade 3.5s ease;
+}
+
+@keyframes textFade {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 /* Buttons */
 button {
-    padding: 15px 38px;
+    padding: 16px 40px;
     font-size: 20px;
     border-radius: 40px;
     border: none;
     cursor: pointer;
-    margin: 20px;
-    transition: all 0.3s ease;
+    margin: 25px;
+    transition: 0.3s ease;
+    font-family: 'Playfair Display', serif;
 }
 
-.nextBtn { background: white; color: #b3003b; }
+.nextBtn { background: #fff; color: #8b0000; }
 
 #yesBtn {
     background: #ff4d6d;
     color: white;
-    box-shadow: 0 0 18px #ff1a40;
+    box-shadow: 0 0 20px #ff1a40;
 }
 
-#noBtn {
-    background: #333;
-    color: white;
-}
+#noBtn { background: #333; color: white; }
 
-/* Falling Pink Petals */
+/* Rose Petals */
 .petal {
     position: absolute;
-    top: -20px;
-    width: 14px;
-    height: 20px;
-    border-radius: 50%;
-    opacity: 0.9;
+    top: -30px;
+    width: 12px;
+    height: 18px;
+    background: radial-gradient(circle at 30% 30%, #ff4d6d, #8b0000);
+    border-radius: 50% 50% 50% 50%;
     animation: fall linear infinite;
+    opacity: 0.9;
 }
 
 @keyframes fall {
@@ -84,7 +98,7 @@ button {
     100% { transform: translateY(110vh) rotate(360deg); }
 }
 
-/* Final page center */
+/* Final page */
 .success {
     height: 100vh;
     display: flex;
@@ -99,12 +113,12 @@ button {
 
 <!-- PAGE 1 -->
 <div class="page active" id="page1">
-    <h1><span class="glowName">Malka Rani</span> is finally here ❤️</h1>
+    <h1>MALKA RANI IS FINALLY HERE ❤️</h1>
 
     <p>
         My name is <b>Sohaib</b>.<br>
-        It was <b>20 January</b> when I saw you…  
-        and since that day, I’m still seeing you — every single day.
+        It was <b>20 January</b> when I saw you… and since that day,  
+        I’m still seeing you every single day.
 
         <br><br>
 
@@ -126,50 +140,13 @@ button {
 <!-- PAGE 2 -->
 <div class="page" id="page2">
     <h1>Will you be mine, <span class="glowName">Malka</span>?</h1>
-
     <button id="yesBtn">Yes</button>
     <button id="noBtn">No</button>
 </div>
 
 <script>
 function nextPage() {
-    page1.classList.remove("active");
-    page2.classList.add("active");
-}
+    page1.classList
 
-let yesBtn = document.getElementById("yesBtn");
-let noBtn = document.getElementById("noBtn");
-let size = 20;
-
-/* YES grows when NO clicked */
-noBtn.addEventListener("click", () => {
-    size += 6;
-    yesBtn.style.fontSize = size + "px";
-    yesBtn.style.padding = (size/2) + "px " + size + "px";
-});
-
-/* YES click → final page */
-yesBtn.addEventListener("click", () => {
-    document.body.innerHTML = `
-        <div class="success">
-            <h1>Yaaayyy Malka ❤️❤️❤️</h1>
-            <h2>MALKA I LOVE YOU FOREVER AND EVER AND EVER ❤️❤️❤️</h2>
-            <p>If you loved it, let me know… I'm waiting for your reply 💌</p>
-        </div>`;
-});
-
-/* Generate falling pink petals */
-for (let i = 0; i < 50; i++) {
-    let petal = document.createElement("div");
-    petal.className = "petal";
-    petal.style.left = Math.random() * 100 + "vw";
-    petal.style.animationDuration = (5 + Math.random() * 5) + "s";
-    petal.style.background = "radial-gradient(circle at 30% 30%, #ffd6e0, #ff4d6d)";
-    document.body.appendChild(petal);
-}
-</script>
-
-</body>
-</html>
 
 
