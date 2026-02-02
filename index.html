@@ -32,7 +32,7 @@ body {
 }
 
 /* Pages */
-.page { display: none; height: 100vh; padding: 70px; position: relative; z-index: 1;}
+.page { display: none; height: 100vh; padding: 70px; position: relative; z-index: 2;}
 .active { display: block; }
 
 .glowName {
@@ -58,6 +58,8 @@ button {
     cursor: pointer;
     margin: 25px;
     font-family: 'Playfair Display', serif;
+    z-index: 3;
+    position: relative;
 }
 
 .nextBtn { background: #fff; color: #8b0000; }
@@ -71,10 +73,11 @@ button {
     width: 12px;
     height: 18px;
     background: radial-gradient(circle at 30% 30%, #ff4d6d, #8b0000);
-    border-radius: 50% 50% 50% 50%;
+    border-radius: 50%;
     animation: fall linear infinite;
     opacity: 0.9;
-    z-index: 0;
+    z-index: 1;
+    pointer-events: none; /* ⭐ THIS FIXES BUTTON ISSUE */
 }
 
 @keyframes fall {
@@ -115,7 +118,7 @@ button {
     </p>
 
     <div class="bigLine">
-        MN TARA BAAZ DOST DARAN MALKA MNI ❤️
+        MN TARA BAAZ DOST DARAN MALKA RANI MNI ❤️
     </div>
 
     <button class="nextBtn" onclick="nextPage()">Continue</button>
@@ -150,6 +153,22 @@ yesBtn.addEventListener("click", () => {
             <h1>Yaaayyy Malka ❤️❤️❤️</h1>
             <h2>MALKA I LOVE YOU FOREVER AND EVER AND EVER ❤️❤️❤️</h2>
             <p>I'm waiting for your reply 💌</p>
+        </div>`;
+});
+
+/* Create rose petals */
+for (let i = 0; i < 60; i++) {
+    let petal = document.createElement("div");
+    petal.className = "petal";
+    petal.style.left = Math.random() * 100 + "vw";
+    petal.style.animationDuration = (5 + Math.random() * 5) + "s";
+    document.body.appendChild(petal);
+}
+</script>
+
+</body>
+</html>
+
 
 
 
