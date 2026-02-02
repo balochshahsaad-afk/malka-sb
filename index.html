@@ -16,7 +16,6 @@ body {
     overflow: hidden;
 }
 
-/* Soft moving romantic background */
 @keyframes bgMove {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
@@ -36,6 +35,7 @@ body {
     text-shadow: 0 0 15px #ff4d6d, 0 0 40px #ff1a40;
     animation: glowPulse 2s infinite alternate;
 }
+
 @keyframes glowPulse {
     from { text-shadow: 0 0 15px #ff4d6d; }
     to { text-shadow: 0 0 45px #ff1a40; }
@@ -51,7 +51,6 @@ p { font-size: 1.15em; max-width: 760px; margin: auto; line-height: 1.9; }
     text-shadow: 0 0 25px #ff4d6d;
 }
 
-/* Buttons */
 button {
     padding: 15px 38px;
     font-size: 20px;
@@ -72,13 +71,12 @@ button {
 
 #noBtn { background: #555; color: white; position: absolute; }
 
-/* 🌸 Romantic Falling Petals */
+/* 🌸 Falling petals */
 .petal {
     position: absolute;
     top: -20px;
     width: 14px;
     height: 20px;
-    background: radial-gradient(circle at 30% 30%, #fff0f5, #ff4d6d);
     border-radius: 50%;
     opacity: 0.85;
     animation: fall linear infinite;
@@ -89,9 +87,8 @@ button {
     100% { transform: translateY(110vh) rotate(360deg); }
 }
 
-/* Ending page */
+/* Ending page — SAME background */
 .success {
-    background: linear-gradient(135deg, #ff758c, #ff7eb3);
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -131,7 +128,6 @@ button {
 
 <div class="page" id="page2">
     <h1>Will you be mine forever, <span class="glowName">Malka</span>?</h1>
-    <p>Hamesha. Every day. Every lifetime.</p>
 
     <button id="yesBtn">Yes</button>
     <button id="noBtn">No</button>
@@ -163,12 +159,19 @@ yesBtn.addEventListener("click", () => {
 });
 
 /* Create petals */
-for (let i = 0; i < 40; i++) {
+for (let i = 0; i < 45; i++) {
     let petal = document.createElement("div");
     petal.className = "petal";
     petal.style.left = Math.random() * 100 + "vw";
     petal.style.animationDuration = (5 + Math.random() * 5) + "s";
     petal.style.opacity = Math.random();
+
+    let colors = [
+        "radial-gradient(circle at 30% 30%, #fff0f5, #ff4d6d)",
+        "radial-gradient(circle at 30% 30%, #ffd6e0, #ff1a40)"
+    ];
+    petal.style.background = colors[Math.floor(Math.random() * colors.length)];
+
     document.body.appendChild(petal);
 }
 </script>
